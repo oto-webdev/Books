@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 import expressAsyncHandler from 'express-async-handler'
 import { connectDB } from './config/connectDb.js'
 import bookRoutes from './routes/bookRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -17,6 +18,7 @@ app.use(cors())
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use("/api/books", bookRoutes)
+app.use("/api/users", userRoutes)
 
 const startServer = expressAsyncHandler(async () => {
     await connectDB()
